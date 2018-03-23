@@ -8,7 +8,8 @@ include ('../config/database.php');
 		$result = mysqli_query($con, $query);
 		if($row = mysqli_num_rows($result) !=  0){
 			$_SESSION["username"] = "admin" ;
-			header('Location: /MyTemplateAdmin/view');	
+			$_SESSION["levelUser"] = "admin";
+			header('Location: /sisfoPengolahanData/view');	
 		}else{
 			$_SESSION['message'] = "Username dan password tidak valid";
 		}

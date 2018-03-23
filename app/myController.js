@@ -349,6 +349,12 @@ app.controller('rekapitulasiKehadiran', function($scope, $http){
   });
 });
 
+app.controller('gaji', function($scope, $http){
+  $http.get('../API/gaji.php').then(function(response){
+    $scope.data = response.data;
+  });
+});
+
 // route Single Page Application
 app.config(function($routeProvider){
     $routeProvider
@@ -399,6 +405,10 @@ app.config(function($routeProvider){
          templateUrl : 'rekapitulasiKehadiran.php',
          controller  : 'rekapitulasiKehadiran'
      })
+     .when('/gaji', {
+        templateUrl : 'gaji.php',
+        controller  : 'gaji' 
+     });
      .otherwise({redirectTo: '/'});
 });
 // end Route

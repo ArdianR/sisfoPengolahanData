@@ -158,6 +158,10 @@
                        </li>
                        <li>
                           <div class="collapsible-header"><a href="" class="white-text"><i class="material-icons left">money</i>Gaji</a></div>
+                          <div class="collapsible-body">
+                             <a href="">Data Master Gaji</a>
+                             <a href="">Slip Gaji</a> 
+                          </div>
                        </li>
                        <li>
                            <div class="collapsible-header"><a href="#!/rekapKehadiran" class="white-text"><i class="material-icons left">assignment</i>Rekap Presensi</a></div>

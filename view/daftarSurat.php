@@ -1,4 +1,4 @@
-<!-- daftarSurat -->
+<!-- daftarSurat --> 
 <br>
 <div ng-model="daftarSurat" ng-show="daftarSurat">
   <div class="basic-container white">
@@ -26,25 +26,39 @@
 <!-- End daftarSurat -->
 
 <!-- Pesan -->
-<br>
+<br><br>
 <div ng-model="pesan" ng-show="pesan">
-  <div class="basic-container">
+  <div class="basic-container white">
     <br><br>
-    <div class="row" ng-repeat="d in data">
-      <div class="col s10 offset-s1">
-        <i class="material-icons">mail</i>
+    <!-- <i class="material-icons">mail</i> -->
+    <div class="row">
+      <div class="col s10 offset-s1">        
         <div class="row">
           <div class="col s6 right">
-            Makassar, {{d.tanggal}}
+            Makassar, {{data[0].tanggal}}
           </div>
         </div>
         <div class="row"> 
-          <div class="col s4">
-            Yth. Bapak Ridho Pangestu
+          <div class="col s12 white">
+            <p>Yth</p>
+            <p>Kepala Bagian Personalia</p>
+            <p>ALterga Komputer</p>
+            <p> Jl. Tamalate I Blk. 15 No.6A, Bonto Makkio, Makassar, Kota Makassar, Sulawesi Selatan 90221</p> 
+            <p>Dengan Hormat</p>
+            <p>Saya yang bertanda tangan di bawah ini</p>
+            <div class="col s10 offset-s1">             
+              <p>Nama   : {{data[0].nama}}</p>
+              <p>Alamat : {{data[0].alamat}}</p>             
+            </div>
+             <p>bermaksud untuk mengajukan izin kerja selama {{data[0].jumlahCuti}} hari kerja dikarenakan {{data[0].alasanCuti}}</p>
+              <p>Demikian surat izin ini saya sampaikan, atas kebijakannya saya ucapkan terima kasih.</p>
+              <p>Hormat Saya</p>
+              <br>
+              <p>{{data[0].nama}}</p> 
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- End Pesan -->
+<!-- End Pesan

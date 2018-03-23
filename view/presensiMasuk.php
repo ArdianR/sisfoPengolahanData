@@ -1,3 +1,11 @@
+<?php 
+    // session_start();
+
+    // if ($_SESSION["levelUser"] == 'admin') {
+        // header('Location : #!/');
+        // header('Location: login.php');
+    // }
+ ?>
 <br>
 <div class="basic-container white">
     <div class="row">
