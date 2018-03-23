@@ -9,10 +9,12 @@ $result = mysqli_query($con, "select id from karyawan where nama='$nama'");
 if(mysqli_num_rows($result) > 0){
     while($id = mysqli_fetch_assoc($result)){
         $selectID = $id['id'];
-        $query = "update daftarKehadiran set waktuPulang='$waktuPulang' where id='$selectID'";
-        if(mysqli_query($con, $query)){
-            mysqli_query($con, "update daftarKehadiran set jumlahJamKerja=TIMEDIFF(waktuPulang, waktuMasuk) where id='$selectID' AND tanggal='$tanggal'");
-			$valid = mysqli_query($con, "SELECT * from rekapKehadiran where id='$selectID' and bulan='Maret'");
+        $query = "update daftarKehadiran set waktuPulang='$waktuPulang' where id='$selectID' AND waktuPulang=null";
+        if(mysqli_query($con, $query)===TRUE){
+            mysqli_query($con, "update daftarKehadiran set jumlahJamKerja=TIMEDIFF(waktuPulang, waktuMasuk) where id='$selectID' AND tanggal='$tanggal'"); //update data (Jumlah Jam Kerja)
+            $cariTanggal = mysqli_query($con, "SELECT date_add(tanggal, interval 30 day) as batas from daftarKehadiran"); // Menentukan Batas Tanggal Gaji
+            $batasTanggal = mysqli_fetch_assoc($cariTanggal);
+			$valid = mysqli_query($con, "SELECT * from rekapKehadiran where id='$selectID' and batasTanggal='$batasTanggal[batas]'");
 			$result2	   = mysqli_query($con, "SELECT * from daftarKehadiran where id='$selectID' AND tanggal='$tanggal'");
 			$total   	   = mysqli_fetch_assoc($result2);
 			$totalJamKerja = $total['jumlahJamKerja'];	
@@ -22,7 +24,7 @@ if(mysqli_num_rows($result) > 0){
 			else {
 				
 				
-				mysqli_query($con, "INSERT INTO rekapKehadiran (id, jumlahKehadiran, totalJamKerja, Bulan, Tahun) values($selectID, 1, '$totalJamKerja','Maret', '2018')");
+				mysqli_query($con, "INSERT INTO rekapKehadiran (id, jumlahKehadiran, totalJamKerja, Bulan, Tahun, batasTanggal) values($selectID, 1, '$totalJamKerja','Maret', '2018', '$batasTanggal[batas]')");
 				}
 			}	
 		}

@@ -159,8 +159,10 @@
                        <li>
                           <div class="collapsible-header"><a href="" class="white-text"><i class="material-icons left">money</i>Gaji</a></div>
                           <div class="collapsible-body">
-                             <a href="">Data Master Gaji</a>
-                             <a href="">Slip Gaji</a> 
+                             <a href="#!/gaji" class="collection-item">Data Master Gaji</a>
+                          </div>
+                          <div class="collapsible-body">
+                            <a href="" class="collection-item">Slip Gaji</a>
                           </div>
                        </li>
                        <li>

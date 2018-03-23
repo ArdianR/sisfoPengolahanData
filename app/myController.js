@@ -352,6 +352,18 @@ app.controller('rekapitulasiKehadiran', function($scope, $http){
 app.controller('gaji', function($scope, $http){
   $http.get('../API/gaji.php').then(function(response){
     $scope.data = response.data;
+    // ubah double ke currency
+    var reverseGaji = response.data[0]['gajiPokok'].toString().split('').reverse().join('');
+    $scope.gaji = reverseGaji.match(/\d{1,3}/g);
+    $scope.gaji = $scope.gaji.join('.').split('').reverse().join('');
+
+    var reverseLembur = response.data[0]['lembur'].toString().split('').reverse().join('');
+    $scope.lembur = reverseLembur.match(/\d{1,3}/g);
+    $scope.lembur = $scope.lembur.join('.').split('').reverse().join('');
+  
+    var reversePotongan = response.data[0]['potongan'].toString().split('').reverse().join('');
+    $scope.potongan = reversePotongan.match(/\d{1,3}/g);
+    $scope.potongan = $scope.potongan.join('.').split('').reverse().join('');
   });
 });
 
@@ -408,7 +420,7 @@ app.config(function($routeProvider){
      .when('/gaji', {
         templateUrl : 'gaji.php',
         controller  : 'gaji' 
-     });
+     })
      .otherwise({redirectTo: '/'});
 });
 // end Route
