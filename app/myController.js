@@ -120,6 +120,7 @@ app.controller('presensiMasuk', function($scope, $http, $window){
       }).then(function(response){
         if(response.data.images[0].transaction.status == "success"){
             // alert("wajah ditemukan");
+            console.log(response.data);
             document.getElementById("waktu").innerHTML = jam + ":" + menit + ":" + detik;
             document.getElementById("nama").innerHTML = response.data.images[0].transaction.subject_id;
             document.getElementById("tanggal").innerHTML = hari[date.getDay()] + ", "  + date.getMonth() + ":" + date.getDate()  + ":" + date.getFullYear();
@@ -215,7 +216,7 @@ app.controller('presensiKeluar', function($scope, $http, $window){
         }
       }).then(function(response){
         if(response.data.images[0].transaction.status == "success"){
-            // alert("wajah ditemukan");
+            console.log(response.data);
             document.getElementById("waktu").innerHTML = jam + ":" + menit + ":" + detik;
             document.getElementById("nama").innerHTML = response.data.images[0].transaction.subject_id;
             document.getElementById("tanggal").innerHTML = hari[date.getDay()] + ", "  + date.getMonth() + ":" + date.getDate()  + ":" + date.getFullYear();
@@ -420,6 +421,10 @@ app.config(function($routeProvider){
      .when('/gaji', {
         templateUrl : 'gaji.php',
         controller  : 'gaji' 
+     })
+     .when('/slipGaji', {
+        templateUrl : 'slipGaji.php',
+        controller  : 'slipGaji'
      })
      .otherwise({redirectTo: '/'});
 });

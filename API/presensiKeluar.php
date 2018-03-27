@@ -24,7 +24,7 @@ if(mysqli_num_rows($result) > 0){
 				mysqli_query($con, "UPDATE rekapKehadiran SET jumlahKehadiran=jumlahKehadiran+1,totalJamKerja=ADDTIME(totalJamKerja, '$totalJamKerja') where id='$selectID'");	
 			}
 			else {				
-				mysqli_query($con, "INSERT INTO rekapKehadiran (id, jumlahKehadiran, totalJamKerja, Bulan, Tahun, batasTanggal) values($selectID, 1, '$totalJamKerja','Maret', '2018', '$batasTanggal[batas]')");
+				mysqli_query($con, "INSERT INTO rekapKehadiran (id, jumlahKehadiran, totalJamKerja,tanggalMulai, batasTanggal) values($selectID, 1, '$totalJamKerja', '$batasTanggal[tanggal]','$batasTanggal[batas]')");
 				}
 			}	
 		}

@@ -14,8 +14,9 @@
     "11" => "November",
     "12" => "Desember"
   );
-  $bulan = $monthIn[date('m')];
-  $result = mysqli_query($con, "SELECT rekapKehadiran.id, karyawan.nama, rekapKehadiran.jumlahKehadiran, rekapKehadiran.jumlahKetidakhadiran, rekapKehadiran.jumlahCuti, rekapKehadiran.totalJamKerja, rekapKehadiran.totalJamLembur, rekapKehadiran.Bulan, rekapKehadiran.Tahun FROM rekapKehadiran inner join karyawan on rekapKehadiran.id = karyawan.id where rekapKehadiran.Bulan = '$bulan'");
+  $bulan   = $monthIn[date('m')];
+  $tanggal = date('Y-m-d'); 
+  $result  = mysqli_query($con, "SELECT rekapKehadiran.id, karyawan.nama, rekapKehadiran.jumlahKehadiran, rekapKehadiran.jumlahKetidakhadiran, rekapKehadiran.jumlahCuti, rekapKehadiran.totalJamKerja, rekapKehadiran.totalJamLembur FROM rekapKehadiran inner join karyawan on rekapKehadiran.id = karyawan.id where '$tanggal' >=rekapKehadiran.tanggalMulai  AND '$tanggal'<= rekapKehadiran.batasTanggal");
 
   $data = array();
   if (mysqli_num_rows($result) > 0) {

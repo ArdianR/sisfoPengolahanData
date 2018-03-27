@@ -159,10 +159,10 @@
                        <li>
                           <div class="collapsible-header"><a href="" class="white-text"><i class="material-icons left">money</i>Gaji</a></div>
                           <div class="collapsible-body">
-                             <a href="#!/gaji" class="collection-item">Data Master Gaji</a>
+                             <a href="#!/gaji" class="collection-item white-text">Data Master Gaji</a>
                           </div>
                           <div class="collapsible-body">
-                            <a href="" class="collection-item">Slip Gaji</a>
+                            <a href="#!/slipGaji" class="collection-item white-text">Slip Gaji</a>
                           </div>
                        </li>
                        <li>
@@ -171,7 +171,6 @@
 											 <li>
 												 <div class="collapsible-header" ng-model="surat" ><a href="#!/cuti" class="white-text"><i class="material-icons left">mail</i>Surat Cuti <span class="new badge" ng-if="surat > 0">{{data.jumlah}}</span> </a></div>
 											 </li>
-
                   </ul>
                 </aside>
                 <li class="divider"></li>

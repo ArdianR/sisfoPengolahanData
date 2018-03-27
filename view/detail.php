@@ -5,7 +5,7 @@
         <h5><i class="material-icons left">info</i>Rekap Kehadiran Pegawai</h5>
         <div ng-repeat="d in data">
           <br>
-          <b>Periode : {{d.Bulan}} - {{d.Tahun}}</b>
+          <b>Periode : {{d.tanggalMulai}} - {{d.batasTanggal}}</b>
           <br><br>
           <div class="row">
             <div class="col s6 offset-s1">
